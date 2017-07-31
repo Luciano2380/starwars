@@ -1,0 +1,40 @@
+<div class="page-header text-center">
+	<h1>Pesquisa da Tripulação</h1>
+	 <h2 ng-show="$root.usuarioLogado != null">Seja bem vindo {{$root.usuarioLogado.login}}</h2>
+</div>
+
+
+<form novalidate name="form" class="row">
+
+	<div class="col-md-12">
+	<input class="form-control" placeholder="filtrar pela nave ou tripulante" 
+					ng-model="filtro" ng-model-options="{ debounce: 500 }"/>
+		<table class="table">
+			<thead class="thead-inverse">
+				<tr>
+					<th>Naves</th>
+					<th>Tripulantes</th>					
+					<th>Opções</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr ng-repeat="t in tripulacoes | filter: filtro">
+					<td>{{t.nave}}</td>	
+					<td>{{t.tripulante1}}<br/>
+                        {{t.tripulante2}}<br/>
+                        {{t.tripulante3}}<br/>
+                        {{t.tripulante4}}<br/>
+					
+					</td>											
+				    <td><input value="Excluir" class="btn btn-primary" type="submit" ng-click="excluir(t)" /></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="col-md-3">
+			<a href="/#/cadastroTripulacao"  class=" btn btn-primary">Cadastrar</button>
+		</div>
+		<div class="col-md-3">			
+			<a href="/" class="btn btn-primary">Voltar</a>
+		</div>
+		</div>
+</form>

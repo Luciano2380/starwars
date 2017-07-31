@@ -1,0 +1,45 @@
+<div class="page-header text-center">
+	<h1>Cadastro da Tripulação</h1>
+</div>
+
+
+<form novalidate name="form" class="row" ng-submit="cadastrar()">
+
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nave:</label> 
+				<select ng-model="tripulacao.nave" name="nave"  required>
+				<option ng-repeat="n in naves" value="{{n.name}}"  ng-selected="tripulacao.nave==n.name">{{n.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Tripulante 1:</label> 
+				<select  ng-model="tripulacao.tripulante1" name="tripulante1"  required>
+				<option ng-repeat="tr1 in persons" value="{{tr1.name}}">{{tr1.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Tripulante 2:</label> 
+				<select ng-model="tripulacao.tripulante2"  name="tripulante2"  required>
+				<option ng-repeat="tr2 in persons" value="{{tr2.name}}">{{tr2.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Tripulante 3: 
+				<select name="tripulante3"  ng-model="tripulacao.tripulante3"  required>
+				<option ng-repeat="tr3 in persons" value="{{tr3.name}}">{{tr3.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label>Tripulante 4:</label> 
+				<select name="tripulante4" ng-model="tripulacao.tripulante4"  required>
+				<option ng-repeat="tr4 in persons" value="{{tr4.name}}">{{tr4.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
+			<a href="/#/pesquisarTripulacao" class="btn btn-primary">Voltar</a>
+		</div>
+
+	</div>
+</form>
